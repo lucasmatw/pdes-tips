@@ -16,6 +16,7 @@ require('./models/Assignments');
 require('./config/passport');
 
 var connectionString = process.env.HEROKU_MONGODB_URI;
+console.log('mongodb connection is = '+ connectionString);
 mongoose.connect(connectionString || 'mongodb://localhost/news');
 
 var routes = require('./routes/index');
