@@ -15,7 +15,9 @@ require('./models/Assignments');
 
 require('./config/passport');
 
-mongoose.connect('mongodb://localhost/news');
+var connectionString = process.env.HEROKU_MONGODB_URI;
+mongoose.connect(connectionString || 'mongodb://localhost/news');
+
 var routes = require('./routes/index');
 //var users = require('./routes/users');
 var activityLog = require('./routes/activityLog').logger;
